@@ -1,0 +1,73 @@
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #24262b;
+  background: #f4f5f7;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; min-height: 100vh; }
+button, input { font: inherit; }
+button { cursor: pointer; }
+
+.app-shell { min-height: 100vh; padding: 28px 24px 36px; background: #f4f5f7; }
+.topbar, .dashboard, footer { width: 100%; max-width: 1120px; margin: 0 auto; }
+.topbar { display: flex; align-items: center; justify-content: space-between; padding-bottom: 26px; }
+.brand { font-size: 25px; font-weight: 700; letter-spacing: -.03em; }
+.eyebrow { margin-top: 4px; color: #727780; font-size: 13px; }
+.room-pill { padding: 9px 12px; border: 1px solid #d9dce1; border-radius: 6px; color: #5d626b; background: #fff; font-size: 13px; }
+.room-pill span { color: #a4a9b2; }
+
+.dashboard { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 280px; gap: 16px; }
+.panel { min-width: 0; padding: 18px; border: 1px solid #dfe2e7; border-radius: 8px; background: #fff; }
+.panel h2 { margin: 0 0 18px; color: #5e636c; font-size: 12px; font-weight: 700; letter-spacing: .02em; }
+.phase-card, .role-card { min-height: 164px; }
+.phase-content { display: flex; align-items: center; justify-content: space-between; gap: 14px; height: calc(100% - 30px); }
+.phase-content strong { color: #24262b; font-size: 26px; font-weight: 700; }
+.phase-content p, .muted, .hint { margin: 8px 0 0; color: #7a8089; font-size: 13px; }
+.timer { padding: 10px 12px; border: 1px solid #e5cfd1; border-radius: 6px; color: #a64047; background: #fff7f7; font-size: 14px; font-weight: 700; white-space: nowrap; }
+.role-question { color: #a64047 !important; }
+.secondary-button, .vote-button, .chat-form button { border: 1px solid transparent; border-radius: 6px; font-size: 13px; }
+.secondary-button { padding: 9px 12px; border-color: #d9dce1; color: #4f555d; background: #f7f8f9; }
+.secondary-button:hover { background: #eef0f2; }
+
+.players-card { grid-column: 3; grid-row: 1 / span 2; }
+.player-list { display: grid; gap: 6px; }
+.player-row { display: flex; align-items: center; gap: 9px; width: 100%; padding: 9px 8px; border: 1px solid transparent; border-radius: 5px; color: #30343a; background: transparent; text-align: left; }
+.player-row:hover, .player-row.selected { border-color: #e1e3e7; background: #f6f7f8; }
+.player-row.self { font-weight: 700; }
+.status-dot { width: 7px; height: 7px; border-radius: 50%; flex: 0 0 auto; background: #58a56c; }
+.status-dot.danger { background: #c65259; }
+.player-name { flex: 1; font-size: 13px; }
+.player-status { color: #858b94; font-size: 10px; }
+.player-status.danger { color: #b54b52; }
+
+.chat-card { grid-column: 1 / span 2; min-height: 250px; }
+.messages { display: grid; gap: 14px; min-height: 136px; }
+.message { display: flex; gap: 14px; color: #5f646c; font-size: 13px; line-height: 1.4; }
+.message span:first-child { min-width: 42px; color: #32363c; font-weight: 700; }
+.chat-form { display: flex; gap: 8px; }
+.chat-form input { min-width: 0; flex: 1; padding: 10px; border: 1px solid #d9dce1; border-radius: 6px; outline: none; color: #24262b; background: #fff; }
+.chat-form input:focus { border-color: #aeb4bd; }
+.chat-form button, .vote-button { color: #fff; background: #a64047; }
+.chat-form button { padding: 0 15px; }
+.chat-form button:hover, .vote-button:hover { background: #913a41; }
+
+.voting-card { min-height: 250px; }
+.vote-button { width: 100%; min-height: 40px; margin-top: 25px; }
+.hint { margin-top: 18px; font-size: 12px; text-align: center; }
+footer { padding-top: 28px; color: #8b9098; font-size: 12px; text-align: center; }
+
+@media (max-width: 850px) {
+  .dashboard { grid-template-columns: 1fr 1fr; }
+  .players-card { grid-column: 1 / span 2; grid-row: auto; }
+  .chat-card { grid-column: 1 / span 2; }
+}
+
+@media (max-width: 560px) {
+  .app-shell { padding: 20px 14px 28px; }
+  .topbar { align-items: flex-start; gap: 16px; }
+  .dashboard { display: flex; flex-direction: column; }
+  .phase-card, .role-card, .players-card, .chat-card, .voting-card { min-height: auto; }
+}
